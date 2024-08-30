@@ -4,17 +4,16 @@ from time import sleep
 
 
 class SettingsPage(Page):
-    SETTINGS_OPTION = (By.CSS_SELECTOR, 'div[class="menu_block_1"] a[href="/settings"]') #//a[@href='/settings']
+    SETTINGS_OPTION = (By.CSS_SELECTOR, "div[class='menu_block_1'] a[href='/settings']")
     EDIT_PROFILE_BTN = (By.CSS_SELECTOR, "a[href='/profile-edit']")
 
 
 
     def click_settings_option(self):
-        sleep(3)
-        self.driver.find_element(*self.SETTINGS_OPTION).click()
+        # sleep(3)
         # self.wait_and_click(*self.SETTINGS_OPTION)
-        # sleep(6)
-        # self.click(*self.SETTINGS_OPTION)
+        self.click(*self.SETTINGS_OPTION)
+        sleep(6)
 
 
     def click_edit_profile_btn(self):

@@ -48,7 +48,7 @@ class Page:
         )
 
     def verify_text(self, expected_text, *locator):
-        actual_text = self.driver.find_element(*locator).text
+        actual_text = self.driver.find_element(*locator).get_attribute('value')
         assert actual_text == expected_text, f'Expected {expected_text} did not match actual {actual_text}'
 
     def verify_partial_text(self, expected_partial_text, *locator):

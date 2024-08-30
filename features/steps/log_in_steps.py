@@ -8,12 +8,12 @@ def open_reelly_login_page(context):
 
 @when('Enter email address')
 def enter_email(context):
-    context.app.log_in_page.enter_email('test@gmail.com')
+    context.app.log_in_page.enter_email()
 
 
 @when('Enter password')
 def enter_password(context):
-    context.app.log_in_page.enter_password('testQA')
+    context.app.log_in_page.enter_password()
 
 
 @then('Click login button')
