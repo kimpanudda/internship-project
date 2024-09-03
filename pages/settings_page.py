@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import Page
-from time import sleep
+
 
 
 class SettingsPage(Page):
@@ -10,15 +10,13 @@ class SettingsPage(Page):
 
 
     def click_settings_option(self):
-        # sleep(3)
-        # self.wait_and_click(*self.SETTINGS_OPTION)
-        self.click(*self.SETTINGS_OPTION)
-        sleep(6)
+        self.wait_and_click(*self.SETTINGS_OPTION)
+
 
 
     def click_edit_profile_btn(self):
-        self.click(*self.EDIT_PROFILE_BTN)
-        sleep(6)
+        self.wait_and_click(*self.EDIT_PROFILE_BTN)
+
 
 
 
