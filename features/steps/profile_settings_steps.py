@@ -1,8 +1,13 @@
 from behave import when, then
 
 
-@then('Click on the settings option')
-def click_on_settings_option(context):
+# @then('Click on the settings option')
+# def click_on_settings_option(context):
+#     context.app.settings_page.click_settings_option()
+
+
+@then('Click on the Menu option')
+def click_on_menu_option(context):
     context.app.settings_page.click_settings_option()
 
 

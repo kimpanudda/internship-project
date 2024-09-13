@@ -12,14 +12,25 @@ def browser_init(context, scenario_name):
     :param context: Behave context
     """
     ### CHROME ####
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
+
+    ### CHROME MOBILE EMULATION ###
+    # mobile_emulation = {"deviceName": "Nexus 5"}
+    # chrome_options = webdriver.ChromeOptions()
+    # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    #
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
 
     # ### FIREFOX ####
     # driver_path = GeckoDriverManager().install()
     # service = Service(driver_path)
     # context.driver = webdriver.Firefox(service=service)
+
+
     ### HEADLESS MODE ####
     # options = webdriver.ChromeOptions()
     # options.add_argument('headless')
@@ -41,11 +52,26 @@ def browser_init(context, scenario_name):
     #     'browserName': 'Firefox',
     #     'sessionName': scenario_name
     # }
+
+    bs_user = 'kimp_kXaRcM'
+    bs_key = 'U5n6Y5H1iSavF1hurNsF'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+
+    options = Options()
+    bstack_options = {
+        "osVersion": "17",
+        "deviceName": "iPhone 12 Pro",
+        'browserName': 'Chrome',
+        'sessionName': scenario_name
+    }
+
+
     #
-    # options.set_capability('bstack:options', bstack_options)
-    # context.driver = webdriver.Remote(command_executor=url, options=options)
+    options.set_capability('bstack:options', bstack_options)
+    context.driver = webdriver.Remote(command_executor=url, options=options)
 
     # context.driver.set_window_size(1920, 1080) # for only headless mode and browserstack
+    # context.driver.set_window_size(400, 700)  # for only headless mode and browserstack
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
